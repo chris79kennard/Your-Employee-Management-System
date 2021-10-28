@@ -5,14 +5,14 @@ CREATE DATABASE batman_db;
 
 USE batman_db;
 
-CREATE TABLE department (
+CREATE TABLE departments (
   id INT PRIMARY KEY,
   name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE role (
   id INT PRIMARY KEY,
-  tittle VARCHAR(30) NOT NULL,
+  title VARCHAR(30) NOT NULL,
   salary DECIMAL,
   department_id INT NOT NULL
 );

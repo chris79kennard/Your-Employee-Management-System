@@ -2,6 +2,7 @@
 // const express = require("express");
 const inquirer = require("inquirer");
 const mysql = require("mysql2");
+const Connection = require("mysql2/typings/mysql/lib/Connection");
 // const { allowedNodeEnvironmentFlags } = require("process");
 
 // const PORT = process.env.PORT || 3001;
@@ -54,3 +55,16 @@ function answers() {
       }
     });
 }
+
+async function getAllDepartments() {
+  try {
+    // get the data from the query
+    const rows = await query("SELECT * FROM departments;");
+    // console table the data
+    consoleTable(rows);
+  } finally {
+    Connection.end();
+  }
+}
+
+answers();
