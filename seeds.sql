@@ -1,24 +1,27 @@
-
-INSERT INTO departments (id,name)
+USE batman_db;
+INSERT INTO departments (department_name)
 VALUES
-    ( 1, "Customer Service"),
-    ( 2, "Human Resources");
+    ("Customer Service"),
+    ("Human Resources"),
+    ("Management");
 
-SELECT * FROM departments;
 
 
-INSERT INTO role (id, title, salary, department_id)
+
+INSERT INTO roles (title, salary, department_id)
 VALUES
-    ( 1, "Team Lead", 15.25, 02),
-    ( 2, "Associate", 7.25, 01),
-    ( 3, "Manager", 30.25, 03);
+    ( "Team Lead", 15.25, 2),
+    (  "Associate", 7.25, 1),
+    (  "Manager", 30.25, 3);
 
-SELECT * FROM role;
 
-INSERT INTO employees (id, first_name, last_name, role_id, manager_id)
+
+INSERT INTO employees (first_name, last_name, role_id)
 VALUES
-    ( 1, "Christopher","Kennard" , 3, 0)
-    ( 2, "Kaylee", "Kennard", 1, 3),
-    ( 3, "Adonis", "Bailey", 2, 3);
+    ( "Christopher","Kennard", 3),
+    ( "Kaylee", "Kennard", 1),
+    ( "Adonis", "Bailey", 2);
 
-SELECT * FROM employees;
+UPDATE employees
+SET manager_id = 1
+WHERE id IN (2,3)
